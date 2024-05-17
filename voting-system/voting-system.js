@@ -18,7 +18,7 @@ let juventusScore = 0;
 
 /* functions */
 
-function voteForB(){
+/*function voteForB(){
 barcelonaScore++;
 console.log(barcelonaScore);
 barcelonaScoreEl.innerText = barcelonaScore;
@@ -36,8 +36,27 @@ function voteForJ(){
   juventusScoreEl.innerText = juventusScore;
   }
 
-  /* event listenner */
-  
 barcelonaBtn.addEventListener('click', voteForB);
 realmadridBtn.addEventListener('click', voteForR);
-juventusBtn.addEventListener('click', voteForJ);
+juventusBtn.addEventListener('click', voteForJ);*/
+
+function vote(event){
+  const id = event.target.id;
+  console.log(id);
+  if (id === "barcelona"){
+    barcelonaScore++;
+    barcelonaScoreEl.innerText = barcelonaScore;
+  }else if (id === "realmadrid"){
+    realmadridScore++;
+    realmadridScoreEl.innerText = realmadridScore;
+  }else {
+    juventusScore++;
+    juventusScoreEl.innerText = juventusScore;
+  }
+}
+
+const allBtns = document.querySelectorAll(".btn");
+
+for (let i = 0; i < allBtns.length; i++) {
+  allBtns[i].addEventListener('click', vote);
+}
